@@ -20,6 +20,7 @@ export const configSchema = z.object({
   clients: z.object({
     binance: clientSchema,
     kraken: clientSchema,
+    huobi: z.object({ rest: baseUrlSchema }),
   }),
 });
 

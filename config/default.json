@@ -25,6 +25,11 @@
       "rest": {
         "baseUrl": "https://api.kraken.com/0/public"
       }
+    },
+    "huobi": {
+      "rest": {
+        "baseUrl": "https://api.huobi.pro"
+      }
     }
   }
 }

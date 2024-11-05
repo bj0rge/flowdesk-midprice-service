@@ -1,7 +1,6 @@
 import { throws, deepEqual } from "node:assert";
 import { describe, it } from "node:test";
 import { decodeRestResponse, decodeWsResponse } from "../codec";
-import c from "config";
 
 describe("decodeWsResponse()", () => {
   describe("when the data doesn't match the expected schema", () => {

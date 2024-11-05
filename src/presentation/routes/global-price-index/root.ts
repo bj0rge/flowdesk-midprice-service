@@ -5,8 +5,8 @@ import { defaultErrorsSchema } from "../../utils/errors";
 import { getConfig } from "../../../utils";
 import {
   getDepthOrderbookSnapshot,
-  listenOrderbook,
-} from "../../../clients/kraken";
+  // listenOrderbook,
+} from "../../../clients/huobi";
 
 const {
   service: { globalPriceIndex: config },
@@ -45,12 +45,12 @@ export default async (app: FastifyInstance) =>
       const { baseAsset, quoteAsset } = request.params;
 
       // test only
-      listenOrderbook({
-        assets: { baseAsset, quoteAsset },
-        cb: (entries) => {
-          console.log({ entries });
-        },
-      });
+      // listenOrderbook({
+      //   assets: { baseAsset, quoteAsset },
+      //   cb: (entries) => {
+      //     console.log({ entries });
+      //   },
+      // });
       const res = await getDepthOrderbookSnapshot({
         assets: { baseAsset, quoteAsset },
       });
