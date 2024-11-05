@@ -1,7 +1,7 @@
 import { exit } from "node:process";
 import console from "node:console";
 import { build } from "./app";
-import { getConfig } from "./utils/config";
+import { getConfig } from "./utils";
 
 const start = async () => {
   try {

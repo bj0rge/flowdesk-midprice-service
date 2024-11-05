@@ -11,6 +11,7 @@
     "fastify-tsconfig": "2.0.0",
     "fastify-type-provider-zod": "^4.0.2",
     "glob": "^11.0.0",
+    "ws": "^8.18.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
@@ -19,6 +20,7 @@
     "@babel/preset-env": "^7.26.0",
     "@types/config": "^3.3.5",
     "@types/node": "22.7.4",
+    "@types/ws": "^8.5.13",
     "pino-pretty": "^11.3.0",
     "ts-node": "^10.9.2",
     "tsx": "4.7.2",

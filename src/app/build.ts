@@ -7,7 +7,7 @@ import {
   validatorCompiler,
   type ZodTypeProvider,
 } from "fastify-type-provider-zod";
-import { getConfig } from "../utils/config";
+import { getConfig } from "../utils";
 import { plugins } from "../presentation";
 
 const envToLogger: {
