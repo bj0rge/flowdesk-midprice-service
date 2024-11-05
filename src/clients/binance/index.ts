@@ -1,6 +1,6 @@
 import { decodeRestResponse, decodeWsResponse } from "./codec";
 import { getConfig, listenOrderbookWebsocket } from "../../utils";
-import type { Crypto, OrderbookEntries } from "../../types";
+import type { Crypto, OrderbookEntries } from "../../domain";
 
 const {
   clients: { binance },

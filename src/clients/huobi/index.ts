@@ -1,6 +1,6 @@
 import { decodeRestResponse, encodeCryptoForRest } from "./codec";
 import { getConfig } from "../../utils";
-import type { Crypto, OrderbookEntries } from "../../types";
+import type { Crypto, OrderbookEntries } from "../../domain";
 
 const {
   clients: { huobi },

@@ -1,5 +1,5 @@
 import z from "zod";
-import type { Order, OrderbookEntries, Crypto } from "../../types";
+import type { Order, OrderbookEntries, Crypto } from "../../domain";
 
 const orderSchema = z.tuple([z.string(), z.string()]);
 

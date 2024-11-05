@@ -1,5 +1,5 @@
 import z from "zod";
-import type { Crypto, Order, OrderbookEntries } from "../../types";
+import type { Crypto, Order, OrderbookEntries } from "../../domain";
 
 const restOrderSchema = z.tuple([z.number(), z.number()]);
 const decodeRestOrder = (data: unknown): Order => {
