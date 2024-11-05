@@ -5,7 +5,7 @@ export type Order = {
 
 export type OrderbookEntries = {
   firstUpdateId?: number;
-  lastUpdateId: number;
+  lastUpdateId?: number;
   bids: Order[];
   asks: Order[];
 };

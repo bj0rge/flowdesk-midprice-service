@@ -1,6 +1,10 @@
 import z from "zod";
 
 const baseUrlSchema = z.object({ baseUrl: z.string() });
+const clientSchema = z.object({
+  websocket: baseUrlSchema,
+  rest: baseUrlSchema,
+});
 
 export const configSchema = z.object({
   env: z.union([z.literal("development"), z.literal("test")]),
@@ -14,10 +18,8 @@ export const configSchema = z.object({
     globalPriceIndex: z.object({ handledCryptos: z.array(z.string()).min(2) }),
   }),
   clients: z.object({
-    binance: z.object({
-      websocket: baseUrlSchema,
-      rest: baseUrlSchema,
-    }),
+    binance: clientSchema,
+    kraken: clientSchema,
   }),
 });
 

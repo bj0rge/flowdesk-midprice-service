@@ -4,11 +4,15 @@ import console from "node:console";
 export async function listenOrderbookWebsocket<T>({
   assets: { baseAsset, quoteAsset },
   client,
+  message,
+  channel,
   wsUri,
   decoder,
   cb,
 }: {
   assets: { baseAsset: string; quoteAsset: string };
+  message?: Object;
+  channel?: string;
   client: string;
   wsUri: string;
   decoder: (data: unknown) => T;
@@ -20,12 +24,17 @@ export async function listenOrderbookWebsocket<T>({
     console.log(
       `Listening orderbook for ${baseAsset}/${quoteAsset} at ${client}`
     );
+    if (message) {
+      wsClient.send(JSON.stringify(message));
+    }
   });
 
   wsClient.on("message", async (data: string) => {
     const response = JSON.parse(data);
-    const orderbookEntries = decoder(response);
-    await cb(orderbookEntries);
+    if (!channel || response?.channel === channel) {
+      const orderbookEntries = decoder(response);
+      await cb(orderbookEntries);
+    }
   });
 
   wsClient.on("close", () => {

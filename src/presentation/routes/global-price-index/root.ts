@@ -6,7 +6,7 @@ import { getConfig } from "../../../utils";
 import {
   getDepthOrderbookSnapshot,
   listenOrderbook,
-} from "../../../clients/binance";
+} from "../../../clients/kraken";
 
 const {
   service: { globalPriceIndex: config },
@@ -48,7 +48,7 @@ export default async (app: FastifyInstance) =>
       listenOrderbook({
         assets: { baseAsset, quoteAsset },
         cb: (entries) => {
-          console.log({ bids: entries.bids });
+          console.log({ entries });
         },
       });
       const res = await getDepthOrderbookSnapshot({

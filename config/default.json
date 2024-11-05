@@ -17,6 +17,14 @@
       "rest": {
         "baseUrl": "https://api.binance.com/api/v3"
       }
+    },
+    "kraken": {
+      "websocket": {
+        "baseUrl": "wss://ws.kraken.com/v2"
+      },
+      "rest": {
+        "baseUrl": "https://api.kraken.com/0/public"
+      }
     }
   }
 }
