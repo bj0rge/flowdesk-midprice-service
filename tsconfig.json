@@ -1,0 +1,25 @@
+{
+  "extends": "fastify-tsconfig",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "noUnusedLocals": false,
+    "forceConsistentCasingInFileNames": false,
+    "noUncheckedIndexedAccess": true,
+    "declaration": true,
+    "strict": true,
+    "incremental": true
+  },
+  "watchOptions": {
+    "watchFile": "fixedPollingInterval",
+    "watchDirectory": "fixedPollingInterval",
+    "fallbackPolling": "dynamicPriority",
+    "synchronousWatchDirectory": true,
+    "excludeDirectories": ["**/node_modules", "./dist"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["./dist", "node_modules"]
+}

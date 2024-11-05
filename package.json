@@ -1,0 +1,33 @@
+{
+  "name": "flowdesk-midprice-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "dependencies": {
+    "fastify-tsconfig": "2.0.0",
+    "glob": "^11.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.25.9",
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@types/node": "22.7.4",
+    "ts-node": "^10.9.2",
+    "tsx": "4.7.2",
+    "typescript": "^5.6.3"
+  },
+  "scripts": {
+    "build:ts": "tsc",
+    "build:babel": "babel ./dist --out-dir ./dist --extensions \".js\"",
+    "build": "npm run build:ts && npm run build:babel",
+    "dev": "NODE_ENV=development tsx watch src/index.ts",
+    "start": "node --experimental-specifier-resolution=node ./dist/index.js",
+    "test": "TZ=Etc/UTC NODE_ENV=test npm run test:single -- --path './src/**/*.test.ts'",
+    "test:single": "NODE_ENV=test npx -- tsx ./src/__tests__/utils/run.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "volta": {
+    "node": "22.11.0"
+  }
+}
