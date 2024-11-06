@@ -1,6 +1,6 @@
 import { decodeRestResponse, encodeCryptoForRest } from "./codec";
 import { getConfig } from "../../utils";
-import type { Crypto, OrderbookEntries } from "../../domain";
+import type { Assets, OrderbookEntries } from "../../domain";
 
 const {
   clients: { huobi },
@@ -13,7 +13,7 @@ const {
 export async function getDepthOrderbookSnapshot({
   assets,
 }: {
-  assets: { baseAsset: Crypto; quoteAsset: Crypto };
+  assets: Assets;
 }): Promise<OrderbookEntries> {
   const pair = `${encodeCryptoForRest(assets.baseAsset)}${encodeCryptoForRest(
     assets.quoteAsset

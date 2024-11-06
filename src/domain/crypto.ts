@@ -7,3 +7,4 @@ const {
 } = getConfig();
 
 export type Crypto = (typeof handledCryptos)[number];
+export type Assets = { baseAsset: Crypto; quoteAsset: Crypto };

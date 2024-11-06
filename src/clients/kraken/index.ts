@@ -5,7 +5,7 @@ import {
   encodeCryptoForWs,
 } from "./codec";
 import { getConfig, listenOrderbookWebsocket } from "../../utils";
-import type { Crypto, OrderbookEntries } from "../../domain";
+import type { Assets, OrderbookEntries } from "../../domain";
 
 const {
   clients: { kraken },
@@ -15,7 +15,7 @@ export async function listenOrderbook({
   assets,
   cb,
 }: {
-  assets: { baseAsset: Crypto; quoteAsset: Crypto };
+  assets: Assets;
   cb: (entries: OrderbookEntries) => void;
 }): Promise<void> {
   const baseAsset = encodeCryptoForWs(assets.baseAsset);
@@ -42,7 +42,7 @@ export async function listenOrderbook({
 export async function getDepthOrderbookSnapshot({
   assets,
 }: {
-  assets: { baseAsset: Crypto; quoteAsset: Crypto };
+  assets: Assets;
 }): Promise<OrderbookEntries> {
   const pair = `${encodeCryptoForRest(assets.baseAsset)}${encodeCryptoForRest(
     assets.quoteAsset

@@ -1,6 +1,6 @@
 import { decodeRestResponse, decodeWsResponse } from "./codec";
 import { getConfig, listenOrderbookWebsocket } from "../../utils";
-import type { Crypto, OrderbookEntries } from "../../domain";
+import type { Assets, OrderbookEntries } from "../../domain";
 
 const {
   clients: { binance },
@@ -10,7 +10,7 @@ export async function listenOrderbook({
   assets,
   cb,
 }: {
-  assets: { baseAsset: Crypto; quoteAsset: Crypto };
+  assets: Assets;
   cb: (entries: OrderbookEntries) => void;
 }): Promise<void> {
   const baseAsset = assets.baseAsset.toLowerCase();
@@ -29,7 +29,7 @@ export async function listenOrderbook({
 export async function getDepthOrderbookSnapshot({
   assets,
 }: {
-  assets: { baseAsset: Crypto; quoteAsset: Crypto };
+  assets: Assets;
 }): Promise<OrderbookEntries> {
   const url = `${binance.rest.baseUrl}/depth?symbol=${assets.baseAsset}${assets.quoteAsset}&limit=1000`;
   const response = await fetch(url);
