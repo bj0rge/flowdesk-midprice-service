@@ -5,3 +5,8 @@ export type ExchangeBestOrders = {
   bestAsk: number;
   bestBid: number;
 };
+
+export type ExchangeService = {
+  startListeners: () => void;
+  updateOnDemand: () => Promise<void>;
+};

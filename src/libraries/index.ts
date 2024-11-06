@@ -5,3 +5,4 @@ export {
 } from "./bestOrdersService";
 
 export * from "./exchanges";
+export { globalPriceIndexService } from "./globalPriceIndex";

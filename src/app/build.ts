@@ -9,6 +9,7 @@ import {
 } from "fastify-type-provider-zod";
 import { getConfig } from "../utils";
 import { plugins } from "../presentation";
+import { startServices } from "./startServices";
 
 const envToLogger: {
   development: FastifyServerOptions["logger"];
@@ -37,6 +38,8 @@ export async function build(): Promise<FastifyInstance> {
   app.setSerializerCompiler(serializerCompiler);
 
   app.register(plugins);
+
+  startServices({ logger: app.log });
 
   return app.withTypeProvider<ZodTypeProvider>();
 }
